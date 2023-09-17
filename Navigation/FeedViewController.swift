@@ -6,7 +6,7 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Лента Новостей"
+        title = "Лента новостей"
         view.backgroundColor = .systemBrown
     }
     

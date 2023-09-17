@@ -21,11 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         newsViewController.tabBarItem = UITabBarItem(title: "Лента Новостей", image: UIImage(named: "events"), tag: 0)
         profileViewController.tabBarItem = UITabBarItem(title: "Профиль", image: UIImage(named: "avatar"), tag: 1)
 
-        tabBarController.viewControllers = [newsViewController, profileViewController]
-  //      let controllers = [newsViewController, profileViewController]
-        tabBarController.viewControllers = tabBarController.map {
-            UINavigationController(rootViewController: $0)
-        }
+
+        let controllers = [newsViewController, profileViewController]
+        tabBarController.viewControllers = controllers
 
         tabBarController.selectedIndex = 0
 
