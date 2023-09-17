@@ -2,20 +2,22 @@
 import UIKit
 
 class PostViewController: UIViewController {
-    
+
+    var titlePost: String = "Полезный отдых"
+
     private lazy var actionButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Вернуться", for: .normal)
-        
+        button.setTitle("Назад", for: .normal)
+
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Отдых"
-        view.backgroundColor = .systemGray3
+        title = titlePost
+        view.backgroundColor = .systemGray2
         view.addSubview(actionButton)
         actionButton.layer.cornerRadius = 12
         actionButton.backgroundColor = .blue
@@ -40,3 +42,5 @@ class PostViewController: UIViewController {
         dismiss(animated: true)
     }
 }
+
+
