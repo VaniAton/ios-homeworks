@@ -3,12 +3,12 @@ import UIKit
 
 class FeedViewController: UIViewController {
 
-    var post = Post(title: "Мой пост")
+    var post = Post(title: "Мои посты")
 
     private lazy var actionButton: UIButton = {
             let button = UIButton()
             button.translatesAutoresizingMaskIntoConstraints = false
-            button.setTitle("Новая новость", for: .normal)
+            button.setTitle("Новый пост", for: .normal)
         
             
             return button
