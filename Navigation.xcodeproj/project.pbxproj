@@ -15,6 +15,7 @@
 		4E255C942AB7640900D55D5E /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E255C932AB7640900D55D5E /* FeedViewController.swift */; };
 		4E255C962AB764D100D55D5E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E255C952AB764D100D55D5E /* ProfileViewController.swift */; };
 		4E255C982AB7730100D55D5E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E255C972AB7730100D55D5E /* PostViewController.swift */; };
+		4E255C9B2AB7997800D55D5E /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E255C9A2AB7997800D55D5E /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		4E255C932AB7640900D55D5E /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		4E255C952AB764D100D55D5E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4E255C972AB7730100D55D5E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		4E255C9A2AB7997800D55D5E /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				4E255C932AB7640900D55D5E /* FeedViewController.swift */,
 				4E255C952AB764D100D55D5E /* ProfileViewController.swift */,
 				4E255C972AB7730100D55D5E /* PostViewController.swift */,
+				4E255C9A2AB7997800D55D5E /* InfoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				4E255C982AB7730100D55D5E /* PostViewController.swift in Sources */,
 				4E255C802AB0F08A00D55D5E /* ViewController.swift in Sources */,
 				4E255C7C2AB0F08A00D55D5E /* AppDelegate.swift in Sources */,
+				4E255C9B2AB7997800D55D5E /* InfoViewController.swift in Sources */,
 				4E255C962AB764D100D55D5E /* ProfileViewController.swift in Sources */,
 				4E255C942AB7640900D55D5E /* FeedViewController.swift in Sources */,
 				4E255C7E2AB0F08A00D55D5E /* SceneDelegate.swift in Sources */,

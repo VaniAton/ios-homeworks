@@ -3,12 +3,13 @@ import UIKit
 
 class FeedViewController: UIViewController {
 
-    var myPost = Post(title: "Статья")
+    var post = Post(title: "Мой пост")
 
     private lazy var actionButton: UIButton = {
             let button = UIButton()
             button.translatesAutoresizingMaskIntoConstraints = false
             button.setTitle("Новая новость", for: .normal)
+        
             
             return button
         }()
@@ -44,11 +45,11 @@ class FeedViewController: UIViewController {
             @objc func buttonPressed(_ sender: UIButton) {
                 let postViewController = PostViewController()
 
-                    postViewController.titlePost = myPost.title
                     postViewController.modalTransitionStyle = .flipHorizontal
-                    postViewController.modalPresentationStyle = .pageSheet
+                    postViewController.modalPresentationStyle = .fullScreen
+                    postViewController.titlePost = post.title
 
-                        present(postViewController, animated: true)
+                navigationController?.pushViewController(postViewController, animated: true)
             }
 
 }
@@ -56,4 +57,3 @@ class FeedViewController: UIViewController {
 struct Post{
     var title: String
 }
-
