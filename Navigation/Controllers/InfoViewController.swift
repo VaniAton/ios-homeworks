@@ -1,5 +1,3 @@
-
-
 import UIKit
 
 class InfoViewController: UIViewController {
@@ -34,19 +32,18 @@ class InfoViewController: UIViewController {
             allertButton.heightAnchor.constraint(equalToConstant: 50)
         ])
 
-
         allertButton.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
 
         
     }
-
-    @objc func buttonPressed(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Новый пост", message: "Вы действительно хотите создать новый пост?", preferredStyle: .alert)
-        let okBtn = UIAlertAction(title: "Да", style: .default)
-        let cancBtn = UIAlertAction(title: "Нет", style: .default)
-        alert.addAction(okBtn)
-        alert.addAction(cancBtn)
-
-        present(alert, animated: true)
+@objc func buttonPressed(_ sender: UIButton) {
+    let alert = UIAlertController(title: "Новый пост", message: "Вы действительно хотите создать новый пост?", preferredStyle: .alert)
+    let okBtn = UIAlertAction(title: "Да", style: .default) { action in
+        print("Функция пока недоступна")
+}
+    let cancBtn = UIAlertAction(title: "Нет", style: .default)
+    alert.addAction(okBtn)
+    alert.addAction(cancBtn)
+    present(alert, animated: true)
     }
 }

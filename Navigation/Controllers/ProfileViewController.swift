@@ -9,7 +9,4 @@ class ProfileViewController: UIViewController {
         title = "Профиль"
         view.backgroundColor = .systemBrown
     }
-    
-
-
 }

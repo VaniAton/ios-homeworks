@@ -5,7 +5,6 @@ class PostViewController: UIViewController {
 
     var titlePost: String = "Anonymous"
 
-
     private lazy var openButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openInfo))
     
     override func viewDidLoad() {
@@ -13,20 +12,16 @@ class PostViewController: UIViewController {
 
         navigationItem.rightBarButtonItem = openButton
         view.backgroundColor = .systemGray2
-
         self.navigationItem.title = titlePost
 }
 
-    @objc func openInfo(_ sender: UIButton) {
-        let infoViewController = InfoViewController()
+@objc func openInfo(_ sender: UIButton) {
+    let infoViewController = InfoViewController()
 
-        infoViewController.modalTransitionStyle = .flipHorizontal
-        infoViewController.modalPresentationStyle = .fullScreen
-
-
-                present(infoViewController, animated: true)
+    infoViewController.modalTransitionStyle = .flipHorizontal
+    infoViewController.modalPresentationStyle = .fullScreen
+    present(infoViewController, animated: true)
     }
-
 }
 
 
