@@ -19,7 +19,7 @@ class FeedViewController: UIViewController {
         title = "Лента новостей"
         view.backgroundColor = .systemBrown
         let safeAreaLayoutGuide = view.safeAreaLayoutGuide
-        func button() {
+        func postButton() {
             view.addSubview(actionButton)
             NSLayoutConstraint.activate([
             actionButton.leadingAnchor.constraint(
@@ -38,7 +38,7 @@ class FeedViewController: UIViewController {
             actionButton.layer.cornerRadius = 12
             actionButton.backgroundColor = .blue
     }
-        let _: () = button()
+        let _: () = postButton()
 }
 
 @objc func buttonPressed(_ sender: UIButton) {
