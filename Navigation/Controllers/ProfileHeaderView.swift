@@ -6,6 +6,7 @@ class ProfileHeaderView: UIView {
         super.init(frame: CGRect(x: 0, y: 0, width: 1170, height: 600))
 
         addSubview(actionButton)
+        self.actionButton = setupSubviews()
     }
 
     required init?(coder: NSCoder) {
@@ -21,5 +22,9 @@ class ProfileHeaderView: UIView {
 
 
     }()
+
+    private func setupSubviews() {
+
+    }
 
 }

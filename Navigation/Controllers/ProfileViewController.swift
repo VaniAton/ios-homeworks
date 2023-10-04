@@ -13,10 +13,9 @@ class ProfileViewController: UIViewController {
         view.backgroundColor = .lightGray
         view.addSubview(profileView)
         profileView.backgroundColor = .black
-
-        profileView = viewWillLayoutSubviews()
-
     }
+
+    
 }
 
 
