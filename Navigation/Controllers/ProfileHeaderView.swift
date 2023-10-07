@@ -2,11 +2,18 @@ import UIKit
 
 class ProfileHeaderView: UIView {
 
-    init() {
-        super.init(frame: CGRect(x: 0, y: 0, width: 1170, height: 600))
+    private lazy var textButton: UIButton = {
+            let button = UIButton()
+            button.setTitle("Show status", for: .normal)
 
-        addSubview(actionButton)
-        self.actionButton = setupSubviews()
+            return button
+    }()
+
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        self.setupSubviews()
     }
 
     required init?(coder: NSCoder) {
@@ -14,17 +21,23 @@ class ProfileHeaderView: UIView {
     }
 
 
-    private lazy var actionButton: UIButton = {
-            let button = UIButton()
-            button.setTitle("Новый пост", for: .normal)
-
-            return button
-
-
-    }()
 
     private func setupSubviews() {
-
+        addSubview(textButton)
+        NSLayoutConstraint.activate([
+            textButton.leadingAnchor.constraint(
+            equalTo: safeAreaLayoutGuide.leadingAnchor,
+            constant: 50.0
+            ),
+            textButton.trailingAnchor.constraint(
+            equalTo: safeAreaLayoutGuide.trailingAnchor,
+            constant: -50.0
+            ),
+            textButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -100),
+            textButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
 
 }
+
+
