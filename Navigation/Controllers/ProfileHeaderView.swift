@@ -2,7 +2,6 @@ import UIKit
 
 class ProfileHeaderView: UIView, UITextFieldDelegate {
 
-
     private lazy var imageProfile: UIImageView = {
         var imageProfile = UIImageView(frame: CGRect(x: 16, y: 130, width: 150, height: 150))
         imageProfile.image = UIImage(named: "userAvatar")
@@ -72,7 +71,7 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
 
     @objc func buttonPressed() {
 
-        print(self.statusProfile.text ?? "Status")
-        }
+        print(self.statusProfile.text ?? "Status") // Почему то выходит ошибка при нажатии, но если заполнить поле текстом и вызвать функцию то текст отображается в консоли
+    }
 }
 
