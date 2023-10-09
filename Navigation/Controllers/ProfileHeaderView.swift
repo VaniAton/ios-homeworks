@@ -2,8 +2,9 @@ import UIKit
 
 class ProfileHeaderView: UIView, UITextFieldDelegate {
 
+
     private lazy var imageProfile: UIImageView = {
-        var imageProfile = UIImageView(frame: CGRect(x: 16, y: 150, width: 150, height: 150))
+        var imageProfile = UIImageView(frame: CGRect(x: 16, y: 130, width: 150, height: 150))
         imageProfile.image = UIImage(named: "userAvatar")
         imageProfile.layer.cornerRadius = 75
         imageProfile.clipsToBounds = true
@@ -15,18 +16,17 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
 
     private lazy var nameProfile: UILabel = {
         let nameProfile = UILabel(frame: CGRect(x: 200, y: 100, width: 200, height: 80))
-
+        nameProfile.font = UIFont.systemFont(ofSize: 24)
         nameProfile.textColor = .black
         nameProfile.text = "Hipster Cat"
-
 
         return nameProfile
     }()
 
     private lazy var statusProfile: UITextField = {
-        let statusProfile =  UITextField(frame: CGRect(x: 200, y: 230, width: 170, height: 40))
+        let statusProfile =  UITextField(frame: CGRect(x: 180, y: 230, width: 170, height: 40))
         statusProfile.placeholder = "Waiting for something..."
-        statusProfile.font = UIFont.systemFont(ofSize: 14)
+        statusProfile.font = UIFont.systemFont(ofSize: 15)
         statusProfile.borderStyle = UITextField.BorderStyle.roundedRect
         statusProfile.autocorrectionType = UITextAutocorrectionType.no
         statusProfile.keyboardType = UIKeyboardType.default
@@ -35,6 +35,9 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
         statusProfile.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
         statusProfile.delegate = self
         statusProfile.backgroundColor = UIColor.clear
+        statusProfile.layer.borderWidth = 1
+        statusProfile.layer.borderColor = UIColor.black.cgColor
+        statusProfile.layer.cornerRadius = 12
 
         return statusProfile
     }()
@@ -49,8 +52,9 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
         ShowStatusButton.layer.shadowOpacity = 0.7
         ShowStatusButton.layer.shadowRadius = 4
         ShowStatusButton.layer.shadowOffset = CGSize(width: 4.0, height: 4.0)
+        ShowStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
 
-            return ShowStatusButton
+        return ShowStatusButton
     }()
 
     override init(frame: CGRect) {
@@ -66,11 +70,9 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
+    @objc func buttonPressed() {
 
-
-    private func setupSubviews() {
-
-
-    }
+        print(self.statusProfile.text ?? "Status")
+        }
 }
 
