@@ -2,18 +2,39 @@ import UIKit
 
 class ProfileHeaderView: UIView {
 
-    private lazy var textButton: UIButton = {
-            let button = UIButton()
-            button.setTitle("Show status", for: .normal)
+    private lazy var imageProfile: UIImageView = {
+        var imageProfile = UIImageView(frame: CGRect(x: 16, y: 150, width: 170, height: 170))
+        imageProfile.image = UIImage(named: "userAvatar")
+        imageProfile.layer.cornerRadius = 50
+        imageProfile.clipsToBounds = true
+        imageProfile.layer.borderColor = UIColor.blue.cgColor
+        imageProfile.layer.borderWidth = 5
 
-            return button
+        return imageProfile
     }()
 
+    private lazy var nameProfile: UILabel = {
+        let nameProfile = UILabel(frame: CGRect(x: 150, y: 80, width: 200, height: 80))
+        nameProfile.text = "Hipster Cat"
+
+        return nameProfile
+    }()
+
+    private lazy var ShowStatusButton: UIButton = {
+            let ShowStatusButton = UIButton(frame: CGRect(x: 16, y: 400, width: 350, height: 50))
+            ShowStatusButton.layer.cornerRadius = 4
+            ShowStatusButton.setTitle("Show status", for: .normal)
+        ShowStatusButton.backgroundColor = .blue
+
+            return ShowStatusButton
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.addSubview(imageProfile)
+        self.addSubview(nameProfile)
+        self.addSubview(ShowStatusButton)
 
-        self.setupSubviews()
     }
 
     required init?(coder: NSCoder) {
@@ -23,21 +44,8 @@ class ProfileHeaderView: UIView {
 
 
     private func setupSubviews() {
-        addSubview(textButton)
-        NSLayoutConstraint.activate([
-            textButton.leadingAnchor.constraint(
-            equalTo: safeAreaLayoutGuide.leadingAnchor,
-            constant: 50.0
-            ),
-            textButton.trailingAnchor.constraint(
-            equalTo: safeAreaLayoutGuide.trailingAnchor,
-            constant: -50.0
-            ),
-            textButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -100),
-            textButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
+
+
     }
-
 }
-
 

@@ -3,20 +3,22 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
-    var profileView = ProfileHeaderView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Профиль"
         view.backgroundColor = .lightGray
-        view.addSubview(profileView)
+        let profileView = ProfileHeaderView()
+        self.view.addSubview(profileView)
     }
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        profileView.frame = view.bounds
-    }
+
+        let profileView = ProfileHeaderView(frame: self.view.bounds)
+        self.view.addSubview(profileView)
+      }
 }
 
 
