@@ -33,16 +33,16 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
         statusProfile.clearButtonMode = UITextField.ViewMode.whileEditing
         statusProfile.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
         statusProfile.delegate = self
-        statusProfile.backgroundColor = UIColor.clear
+        statusProfile.backgroundColor = UIColor.white
         statusProfile.layer.borderWidth = 1
         statusProfile.layer.borderColor = UIColor.black.cgColor
-        statusProfile.layer.cornerRadius = 12
+        statusProfile.layer.cornerRadius = 11
 
         return statusProfile
     }()
 
     private lazy var ShowStatusButton: UIButton = {
-        let ShowStatusButton = UIButton(frame: CGRect(x: 16, y: 350, width: 350, height: 50))
+        let ShowStatusButton = UIButton(frame: CGRect(x: 16, y: 300, width: 350, height: 50))
         ShowStatusButton.layer.cornerRadius = 16
         ShowStatusButton.setTitle("Show status", for: .normal)
         ShowStatusButton.backgroundColor = .systemBlue
