@@ -15,7 +15,7 @@ class ProfileViewController: UIViewController {
         title = "Профиль"
         view.backgroundColor = .lightGray
         view.addSubview(ProfileHeaderView1)
-        constraintsProfileHeaderView()
+    //    constraintsProfileHeaderView()
     }
 
     override func viewWillLayoutSubviews() {
@@ -25,36 +25,36 @@ class ProfileViewController: UIViewController {
         self.view.addSubview(profileView)
       }
     
-    func constraintsProfileHeaderView() {
-        NSLayoutConstraint(item: ProfileHeaderView1,
-                           attribute: .leading,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .leadingMargin,
-                           multiplier: 1,
-                           constant: 0).isActive = true
-        NSLayoutConstraint(item: ProfileHeaderView1,
-                           attribute: .trailing,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .trailingMargin,
-                           multiplier: 1,
-                           constant: 0).isActive = true
-        NSLayoutConstraint(item: ProfileHeaderView1,
-                           attribute: .top,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .topMargin,
-                           multiplier: 1,
-                           constant: 0).isActive = true
-        NSLayoutConstraint(item: ProfileHeaderView1,
-                           attribute: .height,
-                           relatedBy: .equal,
-                           toItem: view,
-                           attribute: .width,
-                           multiplier: 1,
-                           constant: 200).isActive = true
-    }
+//    func constraintsProfileHeaderView() {
+//        NSLayoutConstraint(item: <#T##Any#>, 
+//                           attribute: <#T##NSLayoutConstraint.Attribute#>,
+//                           relatedBy: <#T##NSLayoutConstraint.Relation#>,
+//                           toItem: <#T##Any?#>,
+//                           attribute: <#T##NSLayoutConstraint.Attribute#>,
+//                           multiplier: <#T##CGFloat#>,
+//                           constant: <#T##CGFloat#>)
+//        NSLayoutConstraint(item: ProfileHeaderView1,
+//                           attribute: .trailing,
+//                           relatedBy: .equal,
+//                           toItem: view,
+//                           attribute: .trailingMargin,
+//                           multiplier: 1,
+//                           constant: 0).isActive = true
+//        NSLayoutConstraint(item: ProfileHeaderView1,
+//                           attribute: .top,
+//                           relatedBy: .equal,
+//                           toItem: view,
+//                           attribute: .topMargin,
+//                           multiplier: 1,
+//                           constant: 0).isActive = true
+//        NSLayoutConstraint(item: ProfileHeaderView1,
+//                           attribute: .height,
+//                           relatedBy: .equal,
+//                           toItem: view,
+//                           attribute: .width,
+//                           multiplier: 1,
+//                           constant: 200).isActive = true
+//    }
 }
 
 

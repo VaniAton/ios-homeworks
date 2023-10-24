@@ -55,6 +55,15 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
 
         return ShowStatusButton
     }()
+    
+    private lazy var statusLabel: UILabel = {
+        let statusLabel = UILabel(frame: CGRect(x: 180, y: 180, width: 100, height: 40))
+        statusLabel.text = "status"
+        statusLabel.layer.backgroundColor = .none
+        statusLabel.textColor = .gray
+
+        return statusLabel
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -62,6 +71,7 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
         self.addSubview(nameProfile)
         self.addSubview(ShowStatusButton)
         self.addSubview(statusProfile)
+        self.addSubview(statusLabel)
 
     }
 
