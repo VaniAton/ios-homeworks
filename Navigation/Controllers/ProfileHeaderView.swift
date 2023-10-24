@@ -9,6 +9,7 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
         imageProfile.clipsToBounds = true
         imageProfile.layer.borderColor = UIColor.white.cgColor
         imageProfile.layer.borderWidth = 3
+        imageProfile.translatesAutoresizingMaskIntoConstraints = false
 
         return imageProfile
     }()
@@ -72,6 +73,8 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
         self.addSubview(ShowStatusButton)
         self.addSubview(statusProfile)
         self.addSubview(statusLabel)
+        constraintsImageProfile()
+        constraintsShowStatusButton()
 
     }
 
@@ -81,7 +84,30 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
 
     @objc func buttonPressed() {
 
-        print(self.statusProfile.text ?? "Status") // Почему то выходит ошибка при нажатии, но если заполнить поле текстом и вызвать функцию то текст отображается в консоли
+        print(self.statusProfile.text ?? "Status")
     }
+    
+    func constraintsImageProfile() {
+        
+        NSLayoutConstraint.activate([
+            imageProfile.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            imageProfile.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            imageProfile.bottomAnchor.constraint(equalTo: ShowStatusButton.topAnchor, constant: 16),
+            imageProfile.heightAnchor.constraint(equalToConstant: 20),
+            imageProfile.widthAnchor.constraint(equalToConstant: 160)
+            ])
+        }
+    func constraintsShowStatusButton() {
+        
+        NSLayoutConstraint.activate([
+            ShowStatusButton.topAnchor.constraint(equalTo: imageProfile.bottomAnchor, constant: 16),
+            ShowStatusButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            ShowStatusButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 16),
+            ShowStatusButton.bottomAnchor.constraint(equalTo: ShowStatusButton.topAnchor, constant: 16),
+            ShowStatusButton.heightAnchor.constraint(equalToConstant: 50),
+            ShowStatusButton.topAnchor.constraint(equalTo: statusProfile.bottomAnchor, constant: 34)
+            ])
+        }
+    
 }
 
