@@ -73,9 +73,7 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
         self.addSubview(ShowStatusButton)
         self.addSubview(statusProfile)
         self.addSubview(statusLabel)
-        constraintsImageProfile()
-        constraintsShowStatusButton()
-
+        constraintsForAllUI()
     }
 
     required init?(coder: NSCoder) {
@@ -91,10 +89,11 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
         
         NSLayoutConstraint.activate([
             imageProfile.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            imageProfile.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             imageProfile.bottomAnchor.constraint(equalTo: ShowStatusButton.topAnchor, constant: 16),
-            imageProfile.heightAnchor.constraint(equalToConstant: 20),
-            imageProfile.widthAnchor.constraint(equalToConstant: 160)
+            imageProfile.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            imageProfile.trailingAnchor.constraint(equalTo: statusProfile.trailingAnchor, constant: 16)
+        //    imageProfile.heightAnchor.constraint(equalToConstant: 20),
+        //    imageProfile.widthAnchor.constraint(equalToConstant: 160)
             ])
         }
     func constraintsShowStatusButton() {
@@ -103,11 +102,45 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
             ShowStatusButton.topAnchor.constraint(equalTo: imageProfile.bottomAnchor, constant: 16),
             ShowStatusButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             ShowStatusButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 16),
-            ShowStatusButton.bottomAnchor.constraint(equalTo: ShowStatusButton.topAnchor, constant: 16),
             ShowStatusButton.heightAnchor.constraint(equalToConstant: 50),
-            ShowStatusButton.topAnchor.constraint(equalTo: statusProfile.bottomAnchor, constant: 34)
             ])
         }
-    
+    func constraintsNameProfile() {
+        
+        NSLayoutConstraint.activate([
+            nameProfile.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            nameProfile.leadingAnchor.constraint(equalTo: imageProfile.leadingAnchor, constant: 16),
+            nameProfile.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 100),
+            nameProfile.bottomAnchor.constraint(equalTo: statusProfile.topAnchor, constant: 34),
+            nameProfile.heightAnchor.constraint(equalToConstant: 40)
+            ])
+        }
+    func constraintsStatusProfile() {
+        
+        NSLayoutConstraint.activate([
+            statusProfile.topAnchor.constraint(equalTo: imageProfile.bottomAnchor, constant: 34),
+            statusProfile.leadingAnchor.constraint(equalTo: imageProfile.leadingAnchor, constant: 16),
+            statusProfile.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 40),
+            statusProfile.bottomAnchor.constraint(equalTo: ShowStatusButton.topAnchor, constant: 34),
+            statusProfile.heightAnchor.constraint(equalToConstant: 40)
+            ])
+        }
+    func constraintsStatusLabel() {
+        
+        NSLayoutConstraint.activate([
+            statusProfile.topAnchor.constraint(equalTo: imageProfile.bottomAnchor, constant: 34),
+            statusProfile.leadingAnchor.constraint(equalTo: imageProfile.leadingAnchor, constant: 16),
+            statusProfile.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 40),
+            statusProfile.bottomAnchor.constraint(equalTo: ShowStatusButton.topAnchor, constant: 34),
+            statusProfile.heightAnchor.constraint(equalToConstant: 40)
+            ])
+        }
+    func constraintsForAllUI() {
+        constraintsImageProfile()
+        constraintsShowStatusButton()
+        constraintsNameProfile()
+        constraintsStatusProfile()
+        constraintsStatusLabel()
+    }
 }
 
