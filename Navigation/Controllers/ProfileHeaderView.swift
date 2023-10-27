@@ -110,8 +110,7 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
             
             showStatusButton.topAnchor.constraint(equalTo: imageProfile.bottomAnchor, constant: 16),
             showStatusButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            showStatusButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            showStatusButton.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor)
+            showStatusButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16)
             ])
         }
 }
