@@ -10,6 +10,7 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
         imageProfile.clipsToBounds = true
         imageProfile.layer.borderColor = UIColor.white.cgColor
         imageProfile.layer.borderWidth = 3
+        imageProfile.contentMode = .scaleAspectFill
         
 
         return imageProfile
@@ -28,9 +29,9 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
     private lazy var statusProfile: UITextField = {
         let statusProfile =  UITextField()
         statusProfile.translatesAutoresizingMaskIntoConstraints = false
-        statusProfile.placeholder = "Waiting for something..."
+        statusProfile.placeholder = " Waiting for something..."
         statusProfile.font = UIFont.systemFont(ofSize: 15)
-        statusProfile.borderStyle = UITextField.BorderStyle.roundedRect
+    //    statusProfile.borderStyle = UITextField.BorderStyle.roundedRect
         statusProfile.autocorrectionType = UITextAutocorrectionType.no
         statusProfile.keyboardType = UIKeyboardType.default
         statusProfile.returnKeyType = UIReturnKeyType.done
@@ -100,7 +101,8 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
             
             statusProfile.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 100),
             statusProfile.leadingAnchor.constraint(equalTo: imageProfile.trailingAnchor, constant: 16),
-            statusProfile.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 16),
+            statusProfile.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            statusProfile.heightAnchor.constraint(equalToConstant: 40),
             
             nameProfile.leadingAnchor.constraint(equalTo: imageProfile.trailingAnchor, constant: 16),
             nameProfile.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 50),
@@ -108,7 +110,7 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
             
             showStatusButton.topAnchor.constraint(equalTo: imageProfile.bottomAnchor, constant: 16),
             showStatusButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            showStatusButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 16),
+            showStatusButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
             showStatusButton.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor)
             ])
         }
