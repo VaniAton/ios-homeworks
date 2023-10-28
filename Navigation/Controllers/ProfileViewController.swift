@@ -27,6 +27,7 @@ class ProfileViewController: UIViewController {
     
     func setupContraintsForProfileHV() {
         let safeAreaGuide = view.safeAreaLayoutGuide
+        profileView.backgroundColor = .white // добавил другой фон, чтоб отделить интерфейс профиля от внешнего как по макету
         profileView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             profileView.trailingAnchor.constraint(equalTo: safeAreaGuide.trailingAnchor, constant: 0),
