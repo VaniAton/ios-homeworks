@@ -8,6 +8,7 @@ class ProfileViewController: UIViewController {
     lazy var changeTitile: UIButton = {
         let changeTitile = UIButton()
         changeTitile.translatesAutoresizingMaskIntoConstraints = false
+        changeTitile.backgroundColor = .blue
         
         return changeTitile
     }()
