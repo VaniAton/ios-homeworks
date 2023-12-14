@@ -11,7 +11,6 @@ class LogInViewController: UIViewController {
        return imageLanchScreen
     }()
     
-    // поле логина
     private lazy var emailButton: UITextField = {
         let emailButton =  UITextField()
         emailButton.placeholder = "Email of phone"
@@ -24,7 +23,6 @@ class LogInViewController: UIViewController {
         return emailButton
     }()
     
-    // поле пароля
     private lazy var passwordButton: UITextField = {
         let passwordButton =  UITextField()
         passwordButton.placeholder = "Password"
@@ -52,7 +50,6 @@ class LogInViewController: UIViewController {
         loginStack.layer.borderColor = UIColor.lightGray.cgColor
         loginStack.layer.borderWidth = 0.5
         
-        
         loginStack.addArrangedSubview(self.emailButton)
         loginStack.addArrangedSubview(self.passwordButton)
         
@@ -72,6 +69,30 @@ class LogInViewController: UIViewController {
         return logInButton
     }()
     
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+            
+        scrollView.showsVerticalScrollIndicator = true
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.backgroundColor = .white
+            
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+            
+        return scrollView
+    }()
+    
+    private lazy var contentView: UIView = {
+        let contentView = UIView()
+        
+        contentView.addSubview(imageLanchScreen)
+        contentView.addSubview(loginStack)
+        contentView.addSubview(logInButton)
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.backgroundColor = .white
+            
+        return contentView
+    }()
+    
     // добавление вью
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,9 +100,13 @@ class LogInViewController: UIViewController {
         view.addSubview(imageLanchScreen)
         view.addSubview(loginStack)
         view.addSubview(logInButton)
+        view.addSubview(scrollView)
         setupContraints()
         self.hideNavigationBar()
+        
+        scrollView.addSubview(contentView)
     }
+    
     // Прячем навигационный бар в VC
     func hideNavigationBar() {
             self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -118,23 +143,20 @@ class LogInViewController: UIViewController {
             logInButton.leadingAnchor.constraint(equalTo: safeAreaGuide.leadingAnchor, constant: 16),
             logInButton.trailingAnchor.constraint(equalTo: safeAreaGuide.trailingAnchor, constant: -16),
             logInButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            scrollView.leadingAnchor.constraint(equalTo: safeAreaGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: safeAreaGuide.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: safeAreaGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeAreaGuide.bottomAnchor),
+            
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            
         
         ])
     }
 }
 
-// структура для таблицы
-struct LabelLogin {
-    let name: String
-    
-}
-    
-    extension LabelLogin {
-        
-        static func make() -> [LabelLogin] {
-            [
-                LabelLogin(name: "Login or Number"),
-                LabelLogin(name: "Password"),
-            ]
-        }
-    }
