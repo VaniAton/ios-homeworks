@@ -13,26 +13,27 @@ class LogInViewController: UIViewController {
     
     private lazy var emailButton: UITextField = {
         let emailButton =  UITextField()
-        emailButton.placeholder = "Email of phone"
+        emailButton.placeholder = " Email of phone"
         emailButton.layer.borderWidth = 0.5
         emailButton.backgroundColor = .systemGray6
         emailButton.textColor = .black
         emailButton.autocapitalizationType = .none
         emailButton.font = .systemFont(ofSize: 16)
+        emailButton.layer.borderColor = UIColor.lightGray.cgColor
         
         return emailButton
     }()
     
     private lazy var passwordButton: UITextField = {
         let passwordButton =  UITextField()
-        passwordButton.placeholder = "Password"
+        passwordButton.placeholder = " Password"
         passwordButton.isSecureTextEntry = true
         passwordButton.backgroundColor = .systemGray6
         passwordButton.layer.borderWidth = 0.5
         passwordButton.textColor = .black
         passwordButton.autocapitalizationType = .none
         passwordButton.font = UIFont.systemFont(ofSize: 16)
-        
+        passwordButton.layer.borderColor = UIColor.lightGray.cgColor
         return passwordButton
     }()
     
@@ -88,7 +89,6 @@ class LogInViewController: UIViewController {
         contentView.addSubview(loginStack)
         contentView.addSubview(logInButton)
         contentView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.backgroundColor = .white
             
         return contentView
     }()
@@ -97,14 +97,14 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        view.addSubview(imageLanchScreen)
-        view.addSubview(loginStack)
-        view.addSubview(logInButton)
+//        view.addSubview(imageLanchScreen)
+//        view.addSubview(loginStack)
+//        view.addSubview(logInButton)
         view.addSubview(scrollView)
-        setupContraints()
         self.hideNavigationBar()
         
         scrollView.addSubview(contentView)
+        setupContraints()
     }
     
     // Прячем навигационный бар в VC
@@ -152,7 +152,7 @@ class LogInViewController: UIViewController {
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.topAnchor.constraint(equalTo: safeAreaGuide.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             
         
