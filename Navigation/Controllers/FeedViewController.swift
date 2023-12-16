@@ -70,5 +70,10 @@ class FeedViewController: UIViewController {
     
     struct Post{
         var title: String
+//        var description: String
+//        var image: String
+//        var likes: Int
+//        var author: String
+//        var views: Int
     }
 }

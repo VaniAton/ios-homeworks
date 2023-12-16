@@ -18,6 +18,7 @@
 		4E255C9B2AB7997800D55D5E /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E255C9A2AB7997800D55D5E /* InfoViewController.swift */; };
 		4ECA152D2AC4B65A00204F3A /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA152C2AC4B65A00204F3A /* ProfileHeaderView.swift */; };
 		996DEA8F2AF2F4D70084EBB4 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996DEA8E2AF2F4D70084EBB4 /* LogInViewController.swift */; };
+		996DEAD32B2DC6010084EBB4 /* ProfileTableHederView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996DEAD22B2DC6010084EBB4 /* ProfileTableHederView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		4E255C9A2AB7997800D55D5E /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		4ECA152C2AC4B65A00204F3A /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		996DEA8E2AF2F4D70084EBB4 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		996DEAD22B2DC6010084EBB4 /* ProfileTableHederView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHederView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				4ECA152C2AC4B65A00204F3A /* ProfileHeaderView.swift */,
 				4E255C952AB764D100D55D5E /* ProfileViewController.swift */,
 				996DEA8E2AF2F4D70084EBB4 /* LogInViewController.swift */,
+				996DEAD22B2DC6010084EBB4 /* ProfileTableHederView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				996DEAD32B2DC6010084EBB4 /* ProfileTableHederView.swift in Sources */,
 				4E255C982AB7730100D55D5E /* PostViewController.swift in Sources */,
 				4E255C802AB0F08A00D55D5E /* ViewController.swift in Sources */,
 				996DEA8F2AF2F4D70084EBB4 /* LogInViewController.swift in Sources */,
