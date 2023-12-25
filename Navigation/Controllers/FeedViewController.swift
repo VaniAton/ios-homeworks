@@ -3,7 +3,6 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    var post = Post(title: "Мои посты")
     
     private lazy var actionButton1: UIButton = {
             let button1 = UIButton()
@@ -51,7 +50,6 @@ class FeedViewController: UIViewController {
         
             postViewController.modalTransitionStyle = .flipHorizontal
             postViewController.modalPresentationStyle = .fullScreen
-            postViewController.titlePost = post.title
         
             navigationController?.pushViewController(postViewController, animated: true)
     }
@@ -68,12 +66,4 @@ class FeedViewController: UIViewController {
         ])
     }
     
-    struct Post{
-        var title: String
-//        var description: String
-//        var image: String
-//        var likes: Int
-//        var author: String
-//        var views: Int
-    }
 }

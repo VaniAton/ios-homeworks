@@ -3,7 +3,7 @@ import UIKit
 
 class PostViewController: UIViewController {
 
-    var titlePost: String = "Anonymous"
+    var titlePost: String = "Новый пост"
 
     private lazy var openButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openInfo))
     
