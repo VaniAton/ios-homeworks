@@ -73,11 +73,11 @@
 				996DEA8D2AF2F4960084EBB4 /* Profile */,
 				4E255C992AB7751800D55D5E /* Controllers */,
 				4E255C7B2AB0F08A00D55D5E /* AppDelegate.swift */,
+				9932215A2B3A173300172C81 /* Post.swift */,
 				4E255C7D2AB0F08A00D55D5E /* SceneDelegate.swift */,
 				4E255C842AB0F08B00D55D5E /* Assets.xcassets */,
 				4E255C862AB0F08B00D55D5E /* LaunchScreen.storyboard */,
 				4E255C892AB0F08B00D55D5E /* Info.plist */,
-				9932215A2B3A173300172C81 /* Post.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
