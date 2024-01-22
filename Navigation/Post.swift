@@ -14,31 +14,31 @@ struct Post {
         static func make() -> [Post] {
             [
                 Post(
-                    author: <#T##String#>,
-                    description: <#T##String#>,
-                    image: <#T##String#>,
-                    likes: <#T##Int#>,
+                    author: "FGTeeV",
+                    description: "My first post in this website!",
+                    image: "post1User1",
+                    likes: 73,
                     views: 789
                 ),
                 Post(
-                    author: <#T##String#>,
-                    description: <#T##String#>,
-                    image: <#T##String#>,
-                    likes: <#T##Int#>,
+                    author: "JuegaGerman",
+                    description: "My first post in this website!",
+                    image: "post2User2",
+                    likes: 54,
                     views: 953
                 ),
                 Post(
-                    author: <#T##String#>,
-                    description: <#T##String#>,
-                    image: <#T##String#>,
-                    likes: <#T##Int#>,
+                    author: "elrubiusOMG",
+                    description: "My first post in this website!",
+                    image: "post3User3",
+                    likes: 112,
                     views: 261
                 ),
                 Post(
-                    author: <#T##String#>,
-                    description: <#T##String#>,
-                    image: <#T##String#>,
-                    likes: <#T##Int#>,
+                    author: "Pewdiepie",
+                    description: "My first post in this website!",
+                    image: "post4User4",
+                    likes: 305,
                     views:  1237
                 ),
             ]
