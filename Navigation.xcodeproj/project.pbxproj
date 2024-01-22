@@ -19,6 +19,7 @@
 		4ECA152D2AC4B65A00204F3A /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA152C2AC4B65A00204F3A /* ProfileHeaderView.swift */; };
 		9932215B2B3A173300172C81 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9932215A2B3A173300172C81 /* Post.swift */; };
 		996DEA8F2AF2F4D70084EBB4 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996DEA8E2AF2F4D70084EBB4 /* LogInViewController.swift */; };
+		9998F1132B5F049C00505BAE /* PostMass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998F1122B5F049C00505BAE /* PostMass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		4ECA152C2AC4B65A00204F3A /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		9932215A2B3A173300172C81 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		996DEA8E2AF2F4D70084EBB4 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		9998F1122B5F049C00505BAE /* PostMass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				996DEA8D2AF2F4960084EBB4 /* Profile */,
 				4E255C992AB7751800D55D5E /* Controllers */,
 				4E255C7B2AB0F08A00D55D5E /* AppDelegate.swift */,
+				9998F1122B5F049C00505BAE /* PostMass.swift */,
 				9932215A2B3A173300172C81 /* Post.swift */,
 				4E255C7D2AB0F08A00D55D5E /* SceneDelegate.swift */,
 				4E255C842AB0F08B00D55D5E /* Assets.xcassets */,
@@ -181,6 +184,7 @@
 				4E255C942AB7640900D55D5E /* FeedViewController.swift in Sources */,
 				4E255C7E2AB0F08A00D55D5E /* SceneDelegate.swift in Sources */,
 				4ECA152D2AC4B65A00204F3A /* ProfileHeaderView.swift in Sources */,
+				9998F1132B5F049C00505BAE /* PostMass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
