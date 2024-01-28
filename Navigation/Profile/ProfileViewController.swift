@@ -15,16 +15,31 @@ class ProfileViewController: UIViewController  {
         return tableView
     }()
     
+    private enum CellReuseID: String {
+        case base = "PostTableViewCell_ReuseID"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
+        tuneTableView()
+        setupConstraints()
         
         view.backgroundColor = .systemBackground
     }
     
-    private enum CellReuseID: String {
-        case base = "PostTableViewCell_ReuseID"
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.indexPathsForSelectedRows?.forEach{ indexPath in
+            tableView.deselectRow(
+                at: indexPath,
+                animated: animated
+            )
+        }
     }
+    
+    
     func setupConstraints() {
         let safeAreaLayoutGuide = view.safeAreaLayoutGuide
             
