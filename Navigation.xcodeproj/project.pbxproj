@@ -19,7 +19,8 @@
 		4ECA152D2AC4B65A00204F3A /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECA152C2AC4B65A00204F3A /* ProfileHeaderView.swift */; };
 		9932215B2B3A173300172C81 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9932215A2B3A173300172C81 /* Post.swift */; };
 		996DEA8F2AF2F4D70084EBB4 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996DEA8E2AF2F4D70084EBB4 /* LogInViewController.swift */; };
-		9998F1132B5F049C00505BAE /* PostMass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998F1122B5F049C00505BAE /* PostMass.swift */; };
+		9998F1152B66F45C00505BAE /* TableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998F1142B66F45C00505BAE /* TableViewHeader.swift */; };
+		9998F1192B66FEA000505BAE /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9998F1182B66FEA000505BAE /* PostTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +38,8 @@
 		4ECA152C2AC4B65A00204F3A /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		9932215A2B3A173300172C81 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		996DEA8E2AF2F4D70084EBB4 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		9998F1122B5F049C00505BAE /* PostMass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMass.swift; sourceTree = "<group>"; };
+		9998F1142B66F45C00505BAE /* TableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeader.swift; sourceTree = "<group>"; };
+		9998F1182B66FEA000505BAE /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,8 +75,9 @@
 				996DEA8D2AF2F4960084EBB4 /* Profile */,
 				4E255C992AB7751800D55D5E /* Controllers */,
 				4E255C7B2AB0F08A00D55D5E /* AppDelegate.swift */,
-				9998F1122B5F049C00505BAE /* PostMass.swift */,
 				9932215A2B3A173300172C81 /* Post.swift */,
+				9998F1142B66F45C00505BAE /* TableViewHeader.swift */,
+				9998F1182B66FEA000505BAE /* PostTableViewCell.swift */,
 				4E255C7D2AB0F08A00D55D5E /* SceneDelegate.swift */,
 				4E255C842AB0F08B00D55D5E /* Assets.xcassets */,
 				4E255C862AB0F08B00D55D5E /* LaunchScreen.storyboard */,
@@ -132,7 +135,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					4E255C772AB0F08A00D55D5E = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -176,15 +179,16 @@
 			files = (
 				9932215B2B3A173300172C81 /* Post.swift in Sources */,
 				4E255C982AB7730100D55D5E /* PostViewController.swift in Sources */,
+				9998F1192B66FEA000505BAE /* PostTableViewCell.swift in Sources */,
 				4E255C802AB0F08A00D55D5E /* ViewController.swift in Sources */,
 				996DEA8F2AF2F4D70084EBB4 /* LogInViewController.swift in Sources */,
 				4E255C7C2AB0F08A00D55D5E /* AppDelegate.swift in Sources */,
+				9998F1152B66F45C00505BAE /* TableViewHeader.swift in Sources */,
 				4E255C9B2AB7997800D55D5E /* InfoViewController.swift in Sources */,
 				4E255C962AB764D100D55D5E /* ProfileViewController.swift in Sources */,
 				4E255C942AB7640900D55D5E /* FeedViewController.swift in Sources */,
 				4E255C7E2AB0F08A00D55D5E /* SceneDelegate.swift in Sources */,
 				4ECA152D2AC4B65A00204F3A /* ProfileHeaderView.swift in Sources */,
-				9998F1132B5F049C00505BAE /* PostMass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +210,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -267,6 +272,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

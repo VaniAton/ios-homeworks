@@ -126,7 +126,7 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
             statusLabel.leadingAnchor.constraint(equalTo: imageProfile.trailingAnchor, constant: 16),
             statusLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
             statusLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 60),
-            statusLabel.bottomAnchor.constraint(equalTo: statusProfile.topAnchor, constant: 0)
+            statusLabel.bottomAnchor.constraint(equalTo: statusProfile.topAnchor, constant: 0),
         ])
     }
 }
