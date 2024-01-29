@@ -16,14 +16,15 @@ class ProfileViewController: UIViewController  {
     }()
     
     private enum CellReuseID: String {
-        case base = "PostTableViewCell_ReuseID"
+        case custom = "CustomTableViewCell_ReuseID"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
-        tuneTableView()
         setupConstraints()
+        tuneTableView()
+        
         
         view.backgroundColor = .systemBackground
     }
@@ -52,16 +53,16 @@ class ProfileViewController: UIViewController  {
         }
     private func tuneTableView() {
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 44.0
+        tableView.estimatedRowHeight = 60.0
         
         let headerView = ProfileHeaderView()
-        tableView.setAndLayout(headerView: headerView)
+        tableView.tableHeaderView = headerView
         tableView.tableFooterView = UIView()
         
         tableView.register(
-            PostTableViewCell.self,
-            forCellReuseIdentifier: CellReuseID.base.rawValue
-        )
+                    PostTableViewCell.self,
+                    forCellReuseIdentifier: CellReuseID.custom.rawValue
+                )
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -82,13 +83,13 @@ extension ProfileViewController: UITableViewDataSource {
     ) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: CellReuseID.base.rawValue,
+            withIdentifier: CellReuseID.custom.rawValue,
             for: indexPath
         ) as? PostTableViewCell else {
             fatalError("Error")
         }
         
-        cell.update(post: data[indexPath.row])
+        cell.configPost(post: data[indexPath.row])
         
         return cell
     }
