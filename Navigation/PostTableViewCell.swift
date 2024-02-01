@@ -108,6 +108,7 @@ class PostTableViewCell: UITableViewCell {
         postDescription.text = post.description
         postImage.image = UIImage(named: post.image)
         postLikes.text = "Likes: \(post.likes)"
+        postViews.text = "Views: \(post.views)"
     }
 }
 

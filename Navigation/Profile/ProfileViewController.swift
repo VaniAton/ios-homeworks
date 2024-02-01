@@ -4,6 +4,7 @@ import UIKit
 class ProfileViewController: UIViewController  {
     
     fileprivate let data = Post.make()
+    static let headerIdent = "header"
     
     private var tableView: UITableView = {
         let tableView = UITableView.init(
@@ -11,6 +12,7 @@ class ProfileViewController: UIViewController  {
             style: .plain
         )
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        
         
         return tableView
     }()
@@ -55,9 +57,9 @@ class ProfileViewController: UIViewController  {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60.0
         
-        let headerView = ProfileHeaderView()
-        tableView.tableHeaderView = headerView
+        tableView.tableHeaderView = ProfileHeaderView()
         tableView.tableFooterView = UIView()
+        ProfileHeaderView().frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 300)
         
         tableView.register(
                     PostTableViewCell.self,
@@ -95,4 +97,15 @@ extension ProfileViewController: UITableViewDataSource {
     }
 }
 
-extension ProfileViewController: UITableViewDelegate {}
+extension ProfileViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let rect = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 220)
+                let footerView = UIView(frame:rect)
+                footerView.backgroundColor = UIColor.clear
+            return footerView
+        }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+            return 220
+        }
+    
+}
