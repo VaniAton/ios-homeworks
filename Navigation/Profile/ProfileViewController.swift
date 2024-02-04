@@ -57,9 +57,9 @@ class ProfileViewController: UIViewController  {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60.0
         
-        tableView.tableHeaderView = ProfileHeaderView()
+    //    tableView.tableHeaderView = ProfileHeaderView()
         tableView.tableFooterView = UIView()
-        ProfileHeaderView().frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 300)
+    //    ProfileHeaderView().frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 300)
         
         tableView.register(
                     PostTableViewCell.self,
@@ -99,10 +99,9 @@ extension ProfileViewController: UITableViewDataSource {
 
 extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let rect = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 220)
-                let footerView = UIView(frame:rect)
-                footerView.backgroundColor = UIColor.clear
-            return footerView
+        let tableView1 = ProfileHeaderView()
+        ProfileHeaderView().frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 300)
+            return tableView1
         }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
             return 220
