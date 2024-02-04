@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let newsViewController = UINavigationController(rootViewController: FeedViewController())
 
-        let profileViewController = UINavigationController(rootViewController: ProfileViewController())
+        let profileViewController = UINavigationController(rootViewController: LogInViewController())
         
         let tabBarController = UITabBarController()
 
@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let controllers = [newsViewController, profileViewController]
         tabBarController.viewControllers = controllers
 
-        tabBarController.selectedIndex = 0
+        tabBarController.selectedIndex = 1
 
         window.rootViewController = tabBarController
         window.makeKeyAndVisible()

@@ -104,29 +104,29 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
     func constraintsForAllUI() {
         
         NSLayoutConstraint.activate([
-            imageProfile.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            imageProfile.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            imageProfile.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+            imageProfile.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             imageProfile.heightAnchor.constraint(equalToConstant: 150.0),
             imageProfile.widthAnchor.constraint(equalToConstant: 150.0),
             
-            statusProfile.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 100),
+            statusProfile.topAnchor.constraint(equalTo: self.topAnchor, constant: 100),
             statusProfile.leadingAnchor.constraint(equalTo: imageProfile.trailingAnchor, constant: 16),
-            statusProfile.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            statusProfile.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             statusProfile.heightAnchor.constraint(equalToConstant: 40),
             
             nameProfile.leadingAnchor.constraint(equalTo: imageProfile.trailingAnchor, constant: 16),
-            nameProfile.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 50),
-            nameProfile.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            nameProfile.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 50),
+            nameProfile.topAnchor.constraint(equalTo: self.topAnchor),
             
             showStatusButton.topAnchor.constraint(equalTo: imageProfile.bottomAnchor, constant: 16),
-            showStatusButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            showStatusButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            showStatusButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            showStatusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             showStatusButton.heightAnchor.constraint(equalToConstant: 34),
             
             statusLabel.leadingAnchor.constraint(equalTo: imageProfile.trailingAnchor, constant: 16),
-            statusLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            statusLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 60),
-            statusLabel.bottomAnchor.constraint(equalTo: statusProfile.topAnchor, constant: 0)
+            statusLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            statusLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 60),
+            statusLabel.bottomAnchor.constraint(equalTo: statusProfile.topAnchor, constant: 0),
         ])
     }
 }
