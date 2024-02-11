@@ -9,7 +9,7 @@ class ProfileViewController: UIViewController  {
     private var tableView: UITableView = {
         let tableView = UITableView.init(
             frame: .zero,
-            style: .plain
+            style: .grouped
         )
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
