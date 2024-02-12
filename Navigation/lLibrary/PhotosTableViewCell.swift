@@ -1,17 +1,23 @@
 import UIKit
 
-class PhotosTableViewCell: UIViewController {
+class PhotosTableViewCell: UITableViewCell {
     
     private lazy var userCollectionPhotosLabel: UILabel = {
         let userPhotosLabel = UILabel()
+        userPhotosLabel.translatesAutoresizingMaskIntoConstraints = false
         userPhotosLabel.text = "Photos"
+        userPhotosLabel.font = .systemFont(ofSize: 24, weight: .bold)
+        userPhotosLabel.textColor = .black
         
         return userPhotosLabel
     }()
     
     private lazy var photosLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.text="\u{2794}"
+        label.font = .systemFont(ofSize: 24, weight: .bold)
+        label.textColor = .black
         
         return label
     }()
@@ -21,6 +27,7 @@ class PhotosTableViewCell: UIViewController {
         firstImage.image = UIImage(named: "")
         firstImage.layer.cornerRadius = 6
         firstImage.clipsToBounds = true
+        firstImage.contentMode = .scaleAspectFill
         
         return firstImage
     }()
@@ -30,6 +37,7 @@ class PhotosTableViewCell: UIViewController {
         secondImage.image = UIImage(named: "")
         secondImage.layer.cornerRadius = 6
         secondImage.clipsToBounds = true
+        secondImage.contentMode = .scaleAspectFill
         
         return secondImage
     }()
@@ -39,6 +47,7 @@ class PhotosTableViewCell: UIViewController {
         thirdImage.image = UIImage(named: "")
         thirdImage.layer.cornerRadius = 6
         thirdImage.clipsToBounds = true
+        thirdImage.contentMode = .scaleAspectFill
         
         
         return thirdImage
@@ -49,6 +58,7 @@ class PhotosTableViewCell: UIViewController {
         fourthImage.image = UIImage(named: "")
         fourthImage.layer.cornerRadius = 6
         fourthImage.clipsToBounds = true
+        fourthImage.contentMode = .scaleAspectFill
         
         
         return fourthImage
@@ -73,8 +83,33 @@ class PhotosTableViewCell: UIViewController {
         return stackView
     }()
     
+    override init(
+        style: UITableViewCell.CellStyle,
+        reuseIdentifier: String?
+    ) {
+        super.init(
+            style: style,
+            reuseIdentifier: reuseIdentifier
+        )
+        
+        addSubviews()
+        setupContraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("Error")
+    }
+    
+    
+    private func addSubviews() {
+        
+        contentView.addSubview(userCollectionPhotosLabel)
+        contentView.addSubview(photosLabel)
+        contentView.addSubview(stackPhotoView)
+    }
+    
     private func setupContraints() {
-        let safeAreaGuide = view.safeAreaLayoutGuide
+        let safeAreaGuide = safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
             userCollectionPhotosLabel.leadingAnchor.constraint(
@@ -92,6 +127,9 @@ class PhotosTableViewCell: UIViewController {
             ),
             stackPhotoView.bottomAnchor.constraint(
                 equalTo: safeAreaGuide.bottomAnchor, constant: 12
+            ),
+            stackPhotoView.leadingAnchor.constraint(
+                equalTo: safeAreaGuide.leadingAnchor, constant: -12
             ),
             
             photosLabel.trailingAnchor.constraint(

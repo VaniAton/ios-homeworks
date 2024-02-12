@@ -5,20 +5,22 @@ class ProfileViewController: UIViewController  {
     
     fileprivate let data = Post.make()
     static let headerIdent = "header"
+ 
+// MARK: - Subviews
     
     private var tableView: UITableView = {
         let tableView = UITableView.init(
             frame: .zero,
-            style: .grouped
+            style: .plain
         )
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        
         
         return tableView
     }()
     
     private enum CellReuseID: String {
         case custom = "CustomTableViewCell_ReuseID"
+        case photos = "PhotosTableViewCell_ReuseID"
     }
     
     override func viewDidLoad() {
@@ -42,6 +44,7 @@ class ProfileViewController: UIViewController  {
         }
     }
     
+// MARK: - Constraints
     
     func setupConstraints() {
         let safeAreaLayoutGuide = view.safeAreaLayoutGuide
@@ -54,24 +57,37 @@ class ProfileViewController: UIViewController  {
             ])
         }
     private func tuneTableView() {
-        tableView.rowHeight = UITableView.automaticDimension
+        tableView.rowHeight = UITableView.automaticDimension // высота каждой ячейки
         tableView.estimatedRowHeight = 60.0
-        
-    //    tableView.tableHeaderView = ProfileHeaderView()
         tableView.tableFooterView = UIView()
-    //    ProfileHeaderView().frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 300)
-        
-        tableView.register(
-                    PostTableViewCell.self,
-                    forCellReuseIdentifier: CellReuseID.custom.rawValue
-                )
         tableView.dataSource = self
         tableView.delegate = self
+      
+// MARK: - Регистрация ячеек
+        
+        tableView.register(
+            PhotosTableViewCell.self,
+            forCellReuseIdentifier: CellReuseID.photos.rawValue
+        )
+        
+        tableView.register(
+            PostTableViewCell.self,
+            forCellReuseIdentifier: CellReuseID.custom.rawValue
+        )
     }
 }
 
+// MARK: - UITableViewDataSource
+
 extension ProfileViewController: UITableViewDataSource {
     
+// MARK: - Колличество секций
+    
+    func numberOfSections(
+        in tableView: UITableView
+    ) -> Int {
+        2
+    }
     func tableView(
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
@@ -95,16 +111,38 @@ extension ProfileViewController: UITableViewDataSource {
         
         return cell
     }
+    func tableView1(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: CellReuseID.photos.rawValue,
+            for: indexPath
+        ) as? PhotosTableViewCell else {
+            fatalError("Error")
+        }
+        
+        return cell
+    }
 }
+ // MARK: - UITableViewDelegate
 
 extension ProfileViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let tableView1 = ProfileHeaderView()
-        ProfileHeaderView().frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 300)
-            return tableView1
-        }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-            return 220
-        }
     
+    func tableView(
+        _ tableView: UITableView,
+        heightForHeaderInSection section: Int
+    ) -> CGFloat {
+        return 220
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        viewForHeaderInSection section: Int
+    ) -> UIView? {
+        let tableView1 = ProfileHeaderView()
+        tableView1.backgroundColor = UIColor.white
+        return tableView1
+    }
 }
