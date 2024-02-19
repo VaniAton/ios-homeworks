@@ -11,7 +11,7 @@ class ProfileViewController: UIViewController  {
 // MARK: - Subviews
     
     private var tableView: UITableView = {
-        let table = UITableView(frame: .zero, style: .plain)
+        let table = UITableView(frame: .zero, style: .grouped)
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: headerIdent)
         table.register(PhotosTableViewCell.self, forCellReuseIdentifier: photoIdent)
@@ -59,7 +59,7 @@ class ProfileViewController: UIViewController  {
         }
     private func tuneTableView() {
         tableView.rowHeight = UITableView.automaticDimension // высота каждой ячейки
-        tableView.estimatedRowHeight = 60.0
+        tableView.estimatedRowHeight = 40.0
         tableView.tableFooterView = UIView()
         tableView.dataSource = self
         tableView.delegate = self
@@ -115,10 +115,7 @@ extension ProfileViewController: UITableViewDelegate {
         return headerView
     }
     
-    func tableView(
-        _ tableView: UITableView,
-        heightForHeaderInSection section: Int
-    ) -> CGFloat {
-        return 220
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 0 ? 220 : 0
     }
 }

@@ -24,7 +24,7 @@ class PhotosTableViewCell: UITableViewCell {
     
     private lazy var firstPhotoPreview: UIImageView = {
         let firstImage = UIImageView()
-        firstImage.image = UIImage(named: "")
+        firstImage.image = UIImage(named: "image_1")
         firstImage.layer.cornerRadius = 6
         firstImage.clipsToBounds = true
         firstImage.contentMode = .scaleAspectFill
@@ -34,7 +34,7 @@ class PhotosTableViewCell: UITableViewCell {
     
     private lazy var secondPhotoPreview: UIImageView = {
         let secondImage = UIImageView()
-        secondImage.image = UIImage(named: "")
+        secondImage.image = UIImage(named: "image_2")
         secondImage.layer.cornerRadius = 6
         secondImage.clipsToBounds = true
         secondImage.contentMode = .scaleAspectFill
@@ -44,7 +44,7 @@ class PhotosTableViewCell: UITableViewCell {
     
     private lazy var thirdPhotoPreview: UIImageView = {
         let thirdImage = UIImageView()
-        thirdImage.image = UIImage(named: "")
+        thirdImage.image = UIImage(named: "image_5")
         thirdImage.layer.cornerRadius = 6
         thirdImage.clipsToBounds = true
         thirdImage.contentMode = .scaleAspectFill
@@ -55,7 +55,7 @@ class PhotosTableViewCell: UITableViewCell {
     
     private lazy var fourthPhotoPreview: UIImageView = {
         let fourthImage = UIImageView()
-        fourthImage.image = UIImage(named: "")
+        fourthImage.image = UIImage(named: "image_12")
         fourthImage.layer.cornerRadius = 6
         fourthImage.clipsToBounds = true
         fourthImage.contentMode = .scaleAspectFill
@@ -112,26 +112,6 @@ class PhotosTableViewCell: UITableViewCell {
         let safeAreaGuide = safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
-            userCollectionPhotosLabel.leadingAnchor.constraint(
-                equalTo: safeAreaGuide.leadingAnchor, constant: 12
-            ),
-            userCollectionPhotosLabel.topAnchor.constraint(
-                equalTo: safeAreaGuide.topAnchor, constant: 12
-            ),
-            userCollectionPhotosLabel.bottomAnchor.constraint(
-                equalTo: stackPhotoView.topAnchor, constant: 12
-            ),
-            
-            stackPhotoView.leadingAnchor.constraint(
-                equalTo: safeAreaGuide.leadingAnchor, constant: 2
-            ),
-            stackPhotoView.bottomAnchor.constraint(
-                equalTo: safeAreaGuide.bottomAnchor, constant: 12
-            ),
-            stackPhotoView.leadingAnchor.constraint(
-                equalTo: safeAreaGuide.leadingAnchor, constant: -12
-            ),
-            
             photosLabel.trailingAnchor.constraint(
                 equalTo: safeAreaGuide.trailingAnchor, constant: -12
             ),
@@ -140,7 +120,80 @@ class PhotosTableViewCell: UITableViewCell {
             ),
             photosLabel.topAnchor.constraint(
                 equalTo: safeAreaGuide.topAnchor, constant: 12
-            )
+            ),
+            userCollectionPhotosLabel.topAnchor.constraint(
+                equalTo: contentView.topAnchor, constant: 12
+            ),
+            userCollectionPhotosLabel.leadingAnchor.constraint(
+                equalTo: contentView.leadingAnchor, constant: 12
+            ),
+            userCollectionPhotosLabel.widthAnchor.constraint(
+                equalToConstant: 80
+            ),
+            userCollectionPhotosLabel.heightAnchor.constraint(
+                equalToConstant: 40
+            ),
+            firstPhotoPreview.trailingAnchor.constraint(
+                equalTo: contentView.trailingAnchor, constant: -12
+            ),
+            firstPhotoPreview.centerYAnchor.constraint(
+                equalTo: userCollectionPhotosLabel.centerYAnchor, constant: 8
+            ),
+            firstPhotoPreview.heightAnchor.constraint(
+                equalToConstant: 40
+            ),
+            firstPhotoPreview.widthAnchor.constraint(
+                equalToConstant: 40
+            ),
+            secondPhotoPreview.trailingAnchor.constraint(
+                equalTo: contentView.trailingAnchor, constant: -12
+            ),
+            secondPhotoPreview.centerYAnchor.constraint(
+                equalTo: userCollectionPhotosLabel.centerYAnchor
+            ),
+            secondPhotoPreview.heightAnchor.constraint(
+                equalToConstant: 40
+            ),
+            secondPhotoPreview.widthAnchor.constraint(
+                equalToConstant: 40
+            ),
+            thirdPhotoPreview.trailingAnchor.constraint(
+                equalTo: contentView.trailingAnchor, constant: -12
+            ),
+            thirdPhotoPreview.centerYAnchor.constraint(
+                equalTo: userCollectionPhotosLabel.centerYAnchor, constant: 8
+            ),
+            thirdPhotoPreview.heightAnchor.constraint(
+                equalToConstant: 40
+            ),
+            thirdPhotoPreview.widthAnchor.constraint(
+                equalToConstant: 40
+            ),
+            fourthPhotoPreview.trailingAnchor.constraint(
+                equalTo: contentView.trailingAnchor, constant: -12
+            ),
+            fourthPhotoPreview.centerYAnchor.constraint(
+                equalTo: userCollectionPhotosLabel.centerYAnchor, constant: 8
+            ),
+            fourthPhotoPreview.heightAnchor.constraint(
+                equalToConstant: 40
+            ),
+            fourthPhotoPreview.widthAnchor.constraint(
+                equalToConstant: 40
+            ),
+            stackPhotoView.topAnchor.constraint(
+                equalTo: userCollectionPhotosLabel.bottomAnchor, constant: 12
+            ),
+            stackPhotoView.leadingAnchor.constraint(
+                equalTo: contentView.leadingAnchor, constant: 12
+            ),
+            stackPhotoView.trailingAnchor.constraint(
+                equalTo: contentView.trailingAnchor, constant: -12
+            ),
+            stackPhotoView.bottomAnchor.constraint(
+                equalTo: contentView.bottomAnchor, constant: -12
+            ),
         ])
     }
 }
+    

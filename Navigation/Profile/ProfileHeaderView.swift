@@ -1,6 +1,6 @@
 import UIKit
 
-class ProfileHeaderView: UIView, UITextFieldDelegate {
+class ProfileHeaderView: UITableViewHeaderFooterView, UITextFieldDelegate {
     
     private lazy var imageProfile: UIImageView = {
         var imageProfile = UIImageView()
@@ -78,8 +78,8 @@ class ProfileHeaderView: UIView, UITextFieldDelegate {
     
     private var statusText: String = ""
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
         self.addSubview(imageProfile)
         self.addSubview(nameProfile)
         self.addSubview(showStatusButton)
