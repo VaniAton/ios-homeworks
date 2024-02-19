@@ -5,17 +5,18 @@ class ProfileViewController: UIViewController  {
     
     fileprivate let data = Post.make()
     static let headerIdent = "header"
+    static let photoIdent = "photo"
+    static let postIdent = "post"
  
 // MARK: - Subviews
     
     private var tableView: UITableView = {
-        let tableView = UITableView.init(
-            frame: .zero,
-            style: .plain
-        )
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return tableView
+        let table = UITableView(frame: .zero, style: .plain)
+        table.translatesAutoresizingMaskIntoConstraints = false
+        table.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: headerIdent)
+        table.register(PhotosTableViewCell.self, forCellReuseIdentifier: photoIdent)
+        table.register(PostTableViewCell.self, forCellReuseIdentifier: postIdent)
+        return table
     }()
     
     private enum CellReuseID: String {
@@ -62,18 +63,7 @@ class ProfileViewController: UIViewController  {
         tableView.tableFooterView = UIView()
         tableView.dataSource = self
         tableView.delegate = self
-      
-// MARK: - Регистрация ячеек
         
-        tableView.register(
-            PhotosTableViewCell.self,
-            forCellReuseIdentifier: CellReuseID.photos.rawValue
-        )
-        
-        tableView.register(
-            PostTableViewCell.self,
-            forCellReuseIdentifier: CellReuseID.custom.rawValue
-        )
     }
 }
 
@@ -92,57 +82,43 @@ extension ProfileViewController: UITableViewDataSource {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        data.count
-    }
-    
-    func tableView(
-        _ tableView: UITableView,
-        cellForRowAt indexPath: IndexPath
-    ) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: CellReuseID.custom.rawValue,
-            for: indexPath
-        ) as? PostTableViewCell else {
-            fatalError("Error")
+        switch section {
+        case 0: return 1
+        case 1: return 4
+        default:
+            assertionFailure("no registered section")
+            return 1
         }
-        
-        cell.configPost(post: data[indexPath.row])
-        
-        return cell
     }
-    func tableView1(
-        _ tableView: UITableView,
-        cellForRowAt indexPath: IndexPath
-    ) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: CellReuseID.photos.rawValue,
-            for: indexPath
-        ) as? PhotosTableViewCell else {
-            fatalError("Error")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0:
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: Self.photoIdent, for: indexPath) as! PhotosTableViewCell
+            return cell
+        case 1:
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: Self.postIdent, for: indexPath) as! PostTableViewCell
+            cell.configPost(post: data[indexPath.row])
+            return cell
+        default:
+            assertionFailure("no registered section")
+            return UITableViewCell()
         }
-        
-        return cell
     }
 }
  // MARK: - UITableViewDelegate
 
 extension ProfileViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard section == 0 else { return nil }
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: Self.headerIdent) as! ProfileHeaderView?
+        return headerView
+    }
+    
     func tableView(
         _ tableView: UITableView,
         heightForHeaderInSection section: Int
     ) -> CGFloat {
         return 220
-    }
-    
-    func tableView(
-        _ tableView: UITableView,
-        viewForHeaderInSection section: Int
-    ) -> UIView? {
-        let tableView1 = ProfileHeaderView()
-        tableView1.backgroundColor = UIColor.white
-        return tableView1
     }
 }
