@@ -125,7 +125,7 @@ extension ProfileViewController: UITableViewDelegate {
             tableView.deselectRow(at: indexPath, animated: false)
             navigationController?.pushViewController(PhotosViewController(), animated: true)
         case 1:
-            guard let cell = tableView.cellForRow(at: indexPath) else { return }
+            guard tableView.cellForRow(at: indexPath) != nil else { return }
         default:
             assertionFailure("no registered section")
         }

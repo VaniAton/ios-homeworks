@@ -109,29 +109,19 @@ class PhotosTableViewCell: UITableViewCell {
     }
     
     private func setupContraints() {
-        let safeAreaGuide = safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
             photosLabel.trailingAnchor.constraint(
-                equalTo: safeAreaGuide.trailingAnchor, constant: -12
-            ),
-            photosLabel.bottomAnchor.constraint(
-                equalTo: stackPhotoView.topAnchor, constant: 12
+                equalTo: contentView.trailingAnchor, constant: -12
             ),
             photosLabel.topAnchor.constraint(
-                equalTo: safeAreaGuide.topAnchor, constant: 12
+                equalTo: contentView.topAnchor, constant: 12
             ),
             userCollectionPhotosLabel.topAnchor.constraint(
                 equalTo: contentView.topAnchor, constant: 12
             ),
             userCollectionPhotosLabel.leadingAnchor.constraint(
                 equalTo: contentView.leadingAnchor, constant: 12
-            ),
-            userCollectionPhotosLabel.widthAnchor.constraint(
-                equalToConstant: 80
-            ),
-            userCollectionPhotosLabel.heightAnchor.constraint(
-                equalToConstant: 40
             ),
             stackPhotoView.topAnchor.constraint(
                 equalTo: userCollectionPhotosLabel.bottomAnchor, constant: 12
@@ -145,8 +135,7 @@ class PhotosTableViewCell: UITableViewCell {
             stackPhotoView.bottomAnchor.constraint(
                 equalTo: contentView.bottomAnchor, constant: -12
             ),
-            stackPhotoView.heightAnchor.constraint(equalToConstant: 80),
-       //     stackPhotoView.widthAnchor.constraint(equalToConstant: 200)
+            stackPhotoView.heightAnchor.constraint(equalToConstant: 80)
         ])
     }
 }
