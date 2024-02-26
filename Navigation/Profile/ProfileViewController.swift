@@ -1,14 +1,15 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController  {
+class ProfileViewController: UIViewController {
     
     fileprivate let data = Post.make()
     static let headerIdent = "header"
     static let photoIdent = "photo"
     static let postIdent = "post"
  
-// MARK: - Subviews
+
+    // MARK: - Subviews
     
     private var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -117,5 +118,16 @@ extension ProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return section == 0 ? 220 : 0
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            tableView.deselectRow(at: indexPath, animated: false)
+            navigationController?.pushViewController(PhotosViewController(), animated: true)
+        case 1:
+            guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        default:
+            assertionFailure("no registered section")
+        }
     }
 }

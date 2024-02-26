@@ -18,7 +18,6 @@ class PhotosTableViewCell: UITableViewCell {
         label.text="\u{2794}"
         label.font = .systemFont(ofSize: 24, weight: .bold)
         label.textColor = .black
-        
         return label
     }()
     
@@ -83,6 +82,7 @@ class PhotosTableViewCell: UITableViewCell {
         return stackView
     }()
     
+    
     override init(
         style: UITableViewCell.CellStyle,
         reuseIdentifier: String?
@@ -133,54 +133,6 @@ class PhotosTableViewCell: UITableViewCell {
             userCollectionPhotosLabel.heightAnchor.constraint(
                 equalToConstant: 40
             ),
-            firstPhotoPreview.trailingAnchor.constraint(
-                equalTo: contentView.trailingAnchor, constant: -12
-            ),
-            firstPhotoPreview.centerYAnchor.constraint(
-                equalTo: userCollectionPhotosLabel.centerYAnchor, constant: 8
-            ),
-            firstPhotoPreview.heightAnchor.constraint(
-                equalToConstant: 40
-            ),
-            firstPhotoPreview.widthAnchor.constraint(
-                equalToConstant: 40
-            ),
-            secondPhotoPreview.trailingAnchor.constraint(
-                equalTo: contentView.trailingAnchor, constant: -12
-            ),
-            secondPhotoPreview.centerYAnchor.constraint(
-                equalTo: userCollectionPhotosLabel.centerYAnchor
-            ),
-            secondPhotoPreview.heightAnchor.constraint(
-                equalToConstant: 40
-            ),
-            secondPhotoPreview.widthAnchor.constraint(
-                equalToConstant: 40
-            ),
-            thirdPhotoPreview.trailingAnchor.constraint(
-                equalTo: contentView.trailingAnchor, constant: -12
-            ),
-            thirdPhotoPreview.centerYAnchor.constraint(
-                equalTo: userCollectionPhotosLabel.centerYAnchor, constant: 8
-            ),
-            thirdPhotoPreview.heightAnchor.constraint(
-                equalToConstant: 40
-            ),
-            thirdPhotoPreview.widthAnchor.constraint(
-                equalToConstant: 40
-            ),
-            fourthPhotoPreview.trailingAnchor.constraint(
-                equalTo: contentView.trailingAnchor, constant: -12
-            ),
-            fourthPhotoPreview.centerYAnchor.constraint(
-                equalTo: userCollectionPhotosLabel.centerYAnchor, constant: 8
-            ),
-            fourthPhotoPreview.heightAnchor.constraint(
-                equalToConstant: 40
-            ),
-            fourthPhotoPreview.widthAnchor.constraint(
-                equalToConstant: 40
-            ),
             stackPhotoView.topAnchor.constraint(
                 equalTo: userCollectionPhotosLabel.bottomAnchor, constant: 12
             ),
@@ -193,6 +145,8 @@ class PhotosTableViewCell: UITableViewCell {
             stackPhotoView.bottomAnchor.constraint(
                 equalTo: contentView.bottomAnchor, constant: -12
             ),
+            stackPhotoView.heightAnchor.constraint(equalToConstant: 80),
+       //     stackPhotoView.widthAnchor.constraint(equalToConstant: 200)
         ])
     }
 }
