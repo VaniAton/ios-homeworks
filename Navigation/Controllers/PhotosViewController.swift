@@ -2,37 +2,56 @@ import UIKit
 
 class PhotosViewController: UIViewController {
     
-    let photoIdent = "photoCell"
     fileprivate lazy var photos: [Photos] = Photos.make()
     
-    lazy var viewLayout: UICollectionViewFlowLayout = {
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumInteritemSpacing = 8
-        layout.minimumLineSpacing = 8
-        layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
-        return layout
-    }()
+    let photoIdent = "photoCell"
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
     
     private let collectionPhotos: UICollectionView = {
-        let viewLayout = UICollectionViewLayout()
+        
+        let viewLayout = UICollectionViewFlowLayout()
+        viewLayout.minimumInteritemSpacing = 8
+        viewLayout.minimumLineSpacing = 8
+        viewLayout.scrollDirection = .vertical
+        viewLayout.sectionInset = UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
         
         let collectionPhotos = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
         collectionPhotos.translatesAutoresizingMaskIntoConstraints = false
-        collectionPhotos.backgroundColor = .systemBackground
+        collectionPhotos.backgroundColor = .white
         
         collectionPhotos.register(PhotosCollectionViewCell.self, forCellWithReuseIdentifier: "photoCell")
         
         return collectionPhotos
     }()
     
+    private lazy var openButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openInfo))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Photo"
         setupCollectionView()
         setupConstraints()
         
     }
+    
+    @objc func openInfo(_ sender: UIButton) {
+        let infoViewController = InfoViewController()
+
+        infoViewController.modalTransitionStyle = .flipHorizontal
+        infoViewController.modalPresentationStyle = .fullScreen
+        present(infoViewController, animated: true)
+        }
+    
     func setupConstraints() {
         let safeAreaLayoutGuide = view.safeAreaLayoutGuide
             
@@ -46,20 +65,11 @@ class PhotosViewController: UIViewController {
     
     private func setupCollectionView() {
         view.addSubview(collectionPhotos)
-        
         collectionPhotos.dataSource = self
         collectionPhotos.delegate = self
         
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = false
-    }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.navigationBar.isHidden = true
-    }
 }
 
 extension PhotosViewController: UICollectionViewDataSource {
@@ -80,22 +90,10 @@ extension PhotosViewController: UICollectionViewDataSource {
 extension PhotosViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let countItem: CGFloat = 2
+        let countItem: CGFloat = 3
         let accessibleWidth = collectionView.frame.width - 32
         let widthItem = (accessibleWidth / countItem)
         return CGSize(width: widthItem, height: widthItem * 0.56)
     }
 }
 
-final class photos {
-    
-    static let shared = photos()
-    
-    let examples: [UIImage]
-    
-    private init() {
-        var photos = [UIImage]()
-        for i in 1...20 { photos.append((UIImage(named: "\(i)") ?? UIImage())) }
-        examples = photos.shuffled()
-    }
-}
