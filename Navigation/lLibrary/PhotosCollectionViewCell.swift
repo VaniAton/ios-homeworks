@@ -1,19 +1,12 @@
 import UIKit
 
-final class PhotosCollectionCell: UICollectionViewCell {
+final class PhotosCollectionViewCell: UICollectionViewCell {
     
-    private enum Constants {
-        static let verticalSpacing: CGFloat = 8.0
-        static let horizontalPadding: CGFloat = 8.0
-        static let photosDescriptionVerticalPadding: CGFloat = 8.0
-        static let imageHeight: CGFloat = 100.0
-    }
     
     private lazy var imageInProfileCollection: UIImageView = {
         let imageInProfileCollection = UIImageView()
         imageInProfileCollection.translatesAutoresizingMaskIntoConstraints = false
-        
-        imageInProfileCollection.contentMode = .scaleAspectFill
+
         return imageInProfileCollection
     }()
     
@@ -24,27 +17,25 @@ final class PhotosCollectionCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         
-        setupView()
         setupSubviews()
         setupLayouts()
     }
     
-    private func setupView() {
-        contentView.clipsToBounds = true
-    }
     private func setupSubviews() {
         contentView.addSubview(imageInProfileCollection)
     }
     
     private func setupLayouts() {
         NSLayoutConstraint.activate([
-            imageInProfileCollection.heightAnchor.constraint(equalToConstant: 150
-                                                            ),
-            imageInProfileCollection.widthAnchor.constraint(equalToConstant: 150)
+            imageInProfileCollection.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageInProfileCollection.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageInProfileCollection.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            imageInProfileCollection.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
     
-    func setup(with photos: Photos) {
+    func setup(photos: Photos) {
         imageInProfileCollection.image = UIImage(named: photos.image)
     }
 }
+
