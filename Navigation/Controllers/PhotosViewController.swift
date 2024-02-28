@@ -6,16 +6,6 @@ class PhotosViewController: UIViewController {
     
     let photoIdent = "photoCell"
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = false
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.navigationBar.isHidden = true
-    }
-    
     private let collectionPhotos: UICollectionView = {
         
         let viewLayout = UICollectionViewFlowLayout()
@@ -33,24 +23,23 @@ class PhotosViewController: UIViewController {
         return collectionPhotos
     }()
     
-    private lazy var openButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openInfo))
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Photo"
+        self.title = "Gallery"
         setupCollectionView()
         setupConstraints()
-        
     }
     
-    @objc func openInfo(_ sender: UIButton) {
-        let infoViewController = InfoViewController()
-
-        infoViewController.modalTransitionStyle = .flipHorizontal
-        infoViewController.modalPresentationStyle = .fullScreen
-        present(infoViewController, animated: true)
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
     
     func setupConstraints() {
         let safeAreaLayoutGuide = view.safeAreaLayoutGuide
@@ -64,12 +53,21 @@ class PhotosViewController: UIViewController {
         }
     
     private func setupCollectionView() {
-        view.addSubview(collectionPhotos)
+        self.view.addSubview(collectionPhotos)
         collectionPhotos.dataSource = self
         collectionPhotos.delegate = self
         
     }
+}
+
+extension PhotosViewController: UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let countItem: CGFloat = 3
+        let accessibleWidth = collectionView.frame.width - 32
+        let widthItem = (accessibleWidth / countItem)
+        return CGSize(width: widthItem, height: widthItem)
+    }
 }
 
 extension PhotosViewController: UICollectionViewDataSource {
@@ -83,17 +81,6 @@ extension PhotosViewController: UICollectionViewDataSource {
         cell.setup(photos: photo)
                 return cell
     }
-    
-    
 }
 
-extension PhotosViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let countItem: CGFloat = 3
-        let accessibleWidth = collectionView.frame.width - 32
-        let widthItem = (accessibleWidth / countItem)
-        return CGSize(width: widthItem, height: widthItem * 0.56)
-    }
-}
 
