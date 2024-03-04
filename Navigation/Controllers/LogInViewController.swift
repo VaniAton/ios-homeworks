@@ -108,12 +108,12 @@ class LogInViewController: UIViewController {
         setupContraints()
         
         setupContentOfScrollView()
-        
+        hideNavigationBar()
+        showNavigationBar()
     }
     
     private func addSubviews() {
         view.addSubview(scrollView)
-        
         scrollView.addSubview(contentView)
     }
     

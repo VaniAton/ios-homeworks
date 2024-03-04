@@ -16,7 +16,7 @@ class PhotosViewController: UIViewController {
         
         let collectionPhotos = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
         collectionPhotos.translatesAutoresizingMaskIntoConstraints = false
-        collectionPhotos.backgroundColor = .white
+       // collectionPhotos.backgroundColor = .white
         
         collectionPhotos.register(PhotosCollectionViewCell.self, forCellWithReuseIdentifier: "photoCell")
         
@@ -27,6 +27,7 @@ class PhotosViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "Gallery"
+        view.backgroundColor = .white
         setupCollectionView()
         setupConstraints()
     }
