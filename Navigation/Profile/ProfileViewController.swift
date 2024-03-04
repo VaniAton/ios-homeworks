@@ -1,34 +1,39 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController  {
+class ProfileViewController: UIViewController {
     
     fileprivate let data = Post.make()
     static let headerIdent = "header"
+    static let photoIdent = "photo"
+    static let postIdent = "post"
+ 
+
+    // MARK: - Subviews
     
     private var tableView: UITableView = {
-        let tableView = UITableView.init(
-            frame: .zero,
-            style: .plain
-        )
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        return tableView
+        let table = UITableView(frame: .zero, style: .grouped)
+        table.translatesAutoresizingMaskIntoConstraints = false
+        table.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: headerIdent)
+        table.register(PhotosTableViewCell.self, forCellReuseIdentifier: photoIdent)
+        table.register(PostTableViewCell.self, forCellReuseIdentifier: postIdent)
+        return table
     }()
     
     private enum CellReuseID: String {
         case custom = "CustomTableViewCell_ReuseID"
+        case photos = "PhotosTableViewCell_ReuseID"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         view.addSubview(tableView)
         setupConstraints()
         tuneTableView()
         
         
-        view.backgroundColor = .systemBackground
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +47,7 @@ class ProfileViewController: UIViewController  {
         }
     }
     
+// MARK: - Constraints
     
     func setupConstraints() {
         let safeAreaLayoutGuide = view.safeAreaLayoutGuide
@@ -54,57 +60,76 @@ class ProfileViewController: UIViewController  {
             ])
         }
     private func tuneTableView() {
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 60.0
-        
-    //    tableView.tableHeaderView = ProfileHeaderView()
+        tableView.rowHeight = UITableView.automaticDimension // высота каждой ячейки
+        tableView.estimatedRowHeight = 40.0
         tableView.tableFooterView = UIView()
-    //    ProfileHeaderView().frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 300)
-        
-        tableView.register(
-                    PostTableViewCell.self,
-                    forCellReuseIdentifier: CellReuseID.custom.rawValue
-                )
         tableView.dataSource = self
         tableView.delegate = self
+        
     }
 }
 
+// MARK: - UITableViewDataSource
+
 extension ProfileViewController: UITableViewDataSource {
     
+// MARK: - Колличество секций
+    
+    func numberOfSections(
+        in tableView: UITableView
+    ) -> Int {
+        2
+    }
     func tableView(
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        data.count
-    }
-    
-    func tableView(
-        _ tableView: UITableView,
-        cellForRowAt indexPath: IndexPath
-    ) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: CellReuseID.custom.rawValue,
-            for: indexPath
-        ) as? PostTableViewCell else {
-            fatalError("Error")
+        switch section {
+        case 0: return 1
+        case 1: return 4
+        default:
+            assertionFailure("no registered section")
+            return 1
         }
-        
-        cell.configPost(post: data[indexPath.row])
-        
-        return cell
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0:
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: Self.photoIdent, for: indexPath) as! PhotosTableViewCell
+            return cell
+        case 1:
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: Self.postIdent, for: indexPath) as! PostTableViewCell
+            cell.configPost(post: data[indexPath.row])
+            return cell
+        default:
+            assertionFailure("no registered section")
+            return UITableViewCell()
+        }
     }
 }
+ // MARK: - UITableViewDelegate
 
 extension ProfileViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let tableView1 = ProfileHeaderView()
-        ProfileHeaderView().frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 300)
-            return tableView1
-        }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-            return 220
-        }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard section == 0 else { return nil }
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: Self.headerIdent) as! ProfileHeaderView
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 0 ? 220 : 0
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            tableView.deselectRow(at: indexPath, animated: false)
+            let photosViewController = PhotosViewController()
+            navigationController?.pushViewController(photosViewController, animated: true)
+        case 1:
+            guard tableView.cellForRow(at: indexPath) != nil else { return }
+        default:
+            assertionFailure("no registered section")
+        }
+    }
 }

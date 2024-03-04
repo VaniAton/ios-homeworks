@@ -56,7 +56,7 @@ class PostTableViewCell: UITableViewCell {
             style: style,
             reuseIdentifier: reuseIdentifier
         )
-
+        
         tuneView()
         addSubviews()
         setupConstraints()
@@ -73,6 +73,7 @@ class PostTableViewCell: UITableViewCell {
     }
     
     private func addSubviews() {
+        
         contentView.addSubview(postAuthor)
         contentView.addSubview(postImage)
         contentView.addSubview(postDescription)
