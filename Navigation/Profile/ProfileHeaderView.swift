@@ -1,6 +1,6 @@
 import UIKit
 
-class ProfileHeaderView: UITableViewHeaderFooterView, UITextFieldDelegate {
+class ProfileHeaderView: UIView, UITextFieldDelegate {
     
     private lazy var imageProfile: UIImageView = {
         var imageProfile = UIImageView()
@@ -12,9 +12,18 @@ class ProfileHeaderView: UITableViewHeaderFooterView, UITextFieldDelegate {
         imageProfile.layer.borderWidth = 3
         imageProfile.contentMode = .scaleAspectFill
         
+        let tapAvatar = UITapGestureRecognizer(
+            target: self,
+            action: #selector(didTapAvatar)
+        )
+        imageProfile.isUserInteractionEnabled = true
+        imageProfile.addGestureRecognizer(tapAvatar)
+        
         
         return imageProfile
     }()
+    
+ public var buttonTapCallback: ((_ avatarImage: UIImageView) -> ()) = { avatarImage in }
     
     private lazy var nameProfile: UILabel = {
         let nameProfile = UILabel()
@@ -45,7 +54,10 @@ class ProfileHeaderView: UITableViewHeaderFooterView, UITextFieldDelegate {
         statusProfile.keyboardType = .default
         statusProfile.returnKeyType = .done
         statusProfile.clearButtonMode = .whileEditing
-        statusProfile.addTarget(self, action: #selector(statusTextChanged(_:)), for: .editingChanged)
+        statusProfile.addTarget(
+            self,
+            action: #selector(statusTextChanged(_:)),
+            for: .editingChanged)
         
         return statusProfile
     }()
@@ -61,7 +73,10 @@ class ProfileHeaderView: UITableViewHeaderFooterView, UITextFieldDelegate {
         showStatusButton.layer.shadowOpacity = 0.7
         showStatusButton.layer.shadowRadius = 4
         showStatusButton.layer.shadowOffset = CGSize(width: 4.0, height: 4.0)
-        showStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        showStatusButton.addTarget(
+            self,
+            action: #selector(buttonPressed),
+            for: .touchUpInside)
         
         return showStatusButton
     }()
@@ -78,9 +93,9 @@ class ProfileHeaderView: UITableViewHeaderFooterView, UITextFieldDelegate {
     
     private var statusText: String = ""
     
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
-        self.addSubview(imageProfile)
+    init(reuseIdentifier: String?) {
+        super.init(frame: CGRect())
+        addSubview(imageProfile)
         self.addSubview(nameProfile)
         self.addSubview(showStatusButton)
         self.addSubview(statusProfile)
@@ -88,12 +103,9 @@ class ProfileHeaderView: UITableViewHeaderFooterView, UITextFieldDelegate {
         constraintsForAllUI()
     }
     
-    
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     @objc func statusTextChanged(_ textField: UITextField) {
         statusText = textField.text ?? "Status"
     }
@@ -101,6 +113,10 @@ class ProfileHeaderView: UITableViewHeaderFooterView, UITextFieldDelegate {
         statusLabel.text = statusText
         
         print(self.statusProfile.text ?? "Status")
+    }
+    @objc func didTapAvatar(gesture: UIGestureRecognizer) {
+            buttonTapCallback(gesture.view as! UIImageView)
+            print("Did tap avatar")
     }
     
     func constraintsForAllUI() {

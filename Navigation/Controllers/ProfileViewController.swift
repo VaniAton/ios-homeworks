@@ -14,7 +14,7 @@ class ProfileViewController: UIViewController {
     private var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.translatesAutoresizingMaskIntoConstraints = false
-        table.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: headerIdent)
+      //  table.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: "header")
         table.register(PhotosTableViewCell.self, forCellReuseIdentifier: photoIdent)
         table.register(PostTableViewCell.self, forCellReuseIdentifier: postIdent)
         return table
@@ -32,8 +32,6 @@ class ProfileViewController: UIViewController {
         setupConstraints()
         tuneTableView()
         
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +43,9 @@ class ProfileViewController: UIViewController {
                 animated: animated
             )
         }
+    }
+    @objc func didTapAvatar() {
+            print("Did tap avatar")
     }
     
 // MARK: - Constraints
@@ -67,6 +68,7 @@ class ProfileViewController: UIViewController {
         tableView.delegate = self
         
     }
+    
 }
 
 // MARK: - UITableViewDataSource
@@ -113,8 +115,11 @@ extension ProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard section == 0 else { return nil }
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: Self.headerIdent) as! ProfileHeaderView
-        return headerView
+        let headerView = ProfileHeaderView(reuseIdentifier: "header")
+                headerView.buttonTapCallback = { imageProfile in
+                //тут у вас код для анимации увеличения аватарки после нажатия
+                }
+                return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -132,4 +137,5 @@ extension ProfileViewController: UITableViewDelegate {
             assertionFailure("no registered section")
         }
     }
+    
 }
