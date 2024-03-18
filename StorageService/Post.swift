@@ -1,14 +1,14 @@
 import Foundation
 
-struct Post {
-    let author: String
-    var description: String
-    var image: String
-    var likes: Int
-    var views: Int
+public struct Post {
+    public let author: String
+    public var description: String
+    public var image: String
+    public var likes: Int
+    public var views: Int
 }
 
-extension Post {
+public extension Post {
     
     static func make() -> [Post] {
         [
